@@ -1,6 +1,6 @@
 # docker-cabal-build
-This is a base image for building [Haskell's][haskell] [Cabal][cabal] (and 
-pretty much the rest of the [Haskell Platform][haskell-platform].
+This is a base image for building [Haskell's][haskell] [Cabal][cabal]. (And 
+pretty much the rest of the [Haskell Platform][haskell-platform].)
 
 This image is heavily influenced by [nubs/npm-build][nubs].
 
