@@ -11,7 +11,7 @@ RUN pacman --sync --refresh --sysupgrade --noconfirm --noprogressbar --quiet &&
 RUN useradd --uid 11235 --create-home --comment "Build User" build
 
 USER build
-ENV Home /home/build
+ENV HOME /home/build
 
 # Set the umask to 002 so that the group has write access inside and outside
 # the container.
@@ -19,7 +19,7 @@ ENV Home /home/build
 ADD umask.sh $HOME/umask.sh
 
 # Setup PATH to prioritize local cabal in ahead of system PATH.
-ENV PATH /home/build/.cabal/bin:$PATH
+ENV PATH $HOME/.cabal/bin:$PATH
 
 WORKDIR /code
 
