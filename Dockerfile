@@ -24,4 +24,6 @@ ENV PATH $HOME/.cabal/bin:$PATH
 WORKDIR /code
 
 ENTRYPOINT ["/home/build/umask.sh"]
+
+CMD ["cabal", "update"]
 CMD ["cabal", "install", "-j"]
