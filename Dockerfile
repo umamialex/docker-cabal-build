@@ -3,8 +3,8 @@ FROM base/archlinux:latest
 MAINTAINER Alexander Martin <alex@suitupalex.com>
 
 # Update system and install the Haskell platform.
-RUN pacman --sync --refresh --sysupgrade --noconfirm --noprogressbar --quiet \
-    && pacman --sync --noconfirm --noprogressbar --quiet ghc cabal-install haddock happy alex
+RUN pacman --sync --refresh --sysupgrade --noconfirm --noprogressbar --quiet && \
+    pacman --sync --noconfirm --noprogressbar --quiet ghc cabal-install haddock happy alex
 
 # Create a separate user to run cabal as. Root access shouldn't typically be
 # necessary. Specify the UID so that it is unique including from the host.
@@ -25,5 +25,6 @@ WORKDIR /code
 
 ENTRYPOINT ["/home/build/umask.sh"]
 
-CMD ["cabal", "update"]
+RUN cabal update
+
 CMD ["cabal", "install", "-j"]
